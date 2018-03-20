@@ -10,7 +10,7 @@ To use the library, just include the [planet_phase.js](https://github.com/codebo
 
 The simplest way to call the function is like this:
 
-<pre>drawPlanetPhase(document.getElementById('container'), 0.15, true);
+<pre>drawPlanetPhase(document.getElementById('container'), 0.15);
 </pre>
 
 *   The first argument is the HTML element that you want to contain the disc.
