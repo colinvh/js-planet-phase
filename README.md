@@ -14,16 +14,16 @@ The simplest way to call the function is like this:
 </pre>
 
 *   The first argument is the HTML element that you want to contain the disc.
-*   The second argument must be a value between 0 and 1, indicating how large the shadow should be:
-    *   0 = new moon
-    *   0.25 = crescent
-    *   0.50 = quarter
-    *   0.75 = gibbous
+*   The second argument must be a value between 0 and 1, indicating the phase:
+    *   0.00 = new moon
+    *   0.25 = waxing crescent
+    *   0.50 = first quarter
+    *   0.75 = waxing gibbous
     *   1.00 = full moon
-*   The third argument is a boolean value indicating whether the disc should be waxing or waning (i.e. which side of the disc the shadow should be on):
-    *   true = waxing - shadow on the left
-    *   false = waning - shadow on the right
-*   The function also accepts an optional fourth argument, containing configuration values which change the size, colour and appearance of the disc:
+    *   1.25 = waning gibbous
+    *   1.50 = third quarter
+    *   1.75 = waning crescent
+*   The function also accepts an optional third argument, containing configuration values which change the size, colour and appearance of the disc:
     *   `shadowColour` - CSS background-colour value for the shaded part of the disc
     *   `lightColour` - CSS background-colour value for the illuminated part of the disc
     *   `diameter` - diameter of the disc in pixels
