@@ -8,19 +8,17 @@
 
     the first argument is the HTML element that you want to contain the disc
 
-    the second argument must be a value between 0 and 1, indicating how large the shadow should be: 
-           0 = new moon
-        0.25 = crescent
-        0.50 = quarter
-        0.75 = gibbous
+    the second argument must be a value between 0 and 2, indicating the phase: 
+        0.00 = new moon
+        0.25 = waxing crescent
+        0.50 = first quarter
+        0.75 = waxing gibbous
         1.00 = full moon
+        1.25 = waning gibbous
+        1.50 = third quarter
+        1.75 = waning crescent
 
-    the third argument is a boolean value indicating whether the disc should be waxing or waning (ie which 
-    side of the disc the shadow should be on):
-         true = waxing - shadow on the left
-        false = waning - shadow on the right
-
-    the function accepts an optional fourth argument, containing configuration values which change the
+    the function accepts an optional third argument, containing configuration values which change the
     size, colour and appearance of the disc - see the comments on the 'defaultConfig' object for details.
 
     Copyright 2014 Rob Dawson
@@ -134,9 +132,15 @@ var drawPlanetPhase = (function(){
         return config;
     }
 
-    return function(containerEl, phase, isWaxing, config){
+    return function(containerEl, phase, config){
         config = populateMissingConfigValues(Object.create(config || {}));
         var el = makeDiv(containerEl);
+        phase %= 2;
+        var isWaxing = true;
+        if (phase > 1) {
+            phase = 2 - phase;
+            isWaxing = false;
+        }
         setPhase(el, phase, isWaxing, config);
     };
 
